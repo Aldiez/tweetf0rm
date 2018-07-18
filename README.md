@@ -1,3 +1,8 @@
+## Aldiez changes to this tweetf0rm-fork
+* New python files were added: timeline\_verboser.py and json\_query\_generator.py which pick new user_id's from the timelines and add them to the search.json. This greatly widens the radius of the crawler in an instant!
+* Step one: run the twitter\_tracker.py in order to collect twitter timelines
+* Step two: run timeline\_verboser.py to collect new user\_id which replied to the original post. A new folder "temp\_ID\_timelines" will be created with temporary user\_id's.
+* Step three: run json\_query\_generater.py to update the search.json with the new user\_id from the temporary folder "temp\_ID\_timelines"
 
 #### The old version is in the `tweetf0rm_1_0` branch
 * The old version hasn't been updated for several reasons. Primarily because (1) it's too tedious to setup `redis` for this; and (2) using proxies don't work well unless you have massive private premium proxy servers.  
