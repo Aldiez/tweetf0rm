@@ -3,12 +3,6 @@ import glob, os
 import fileinput
 import re
 
-#data = open("20180330/3578166252","r")
-#data = open("20180330/133684052","r")
-#data = open("20180330/93196638","r")
-#data = open("20180330/63299591","r")
-
-
 extracted_path = r"temp_ID_timelines"
 if not os.path.exists(extracted_path):
     os.makedirs(extracted_path)
@@ -52,8 +46,6 @@ def json_iterator(data):
 
         # concatenate string from id and name
         string = {user_id:user_screen_name}
-        #string = str(user_id) + "\t" + str(user_screen_name) + "\n"
-        #temp_ID.write(string)
 
         # check id and name in fixed_ID file for already existing instances
         with open(temp_path_fixedID,'a') as fix_ID:
@@ -68,9 +60,6 @@ def json_iterator(data):
 
 def file_iterator():
     todo_path = os.path.join(os.getcwd(), "data", "timelines")
-    #todo_path_current = os.getcwd()
-
-    #ROOT = [os.path.join(todo_path, filename) for filename in filter(os.path.isdir, os.listdir(todo_path))]
 
     ROOT = [os.path.join(todo_path, filename) for filename in os.listdir(todo_path)]
 
@@ -83,4 +72,3 @@ def file_iterator():
                 json_iterator(data)
 
 file_iterator()
-# if file checked, just move to the next
